@@ -1,0 +1,23 @@
+proxy:
+  secretToken: "xxx"
+  service:
+      type: NodePort
+hub:
+  db:
+    type: sqlite-pvc
+    pvc:
+      accessModes:
+        - ReadWriteOnce
+      storage: 1Gi
+      storageClassName: rook-block
+
+
+singleuser:
+  memory:
+    guarantee: 1G
+    limit: 2G
+  storage:
+    type: dynamic
+    capacity: 1Gi
+    dynamic:
+      storageClass: rook-block
